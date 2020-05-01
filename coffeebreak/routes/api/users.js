@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const userCtrl = require('../controllers/users');
+const userCtrl = require('../../controllers/users');
 
 // Should change all user routes to /signup /login /update and change controllers functions
 router.get('/users', userCtrl.index);
