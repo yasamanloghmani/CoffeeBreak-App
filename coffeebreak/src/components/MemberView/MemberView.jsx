@@ -1,11 +1,11 @@
 import React from "react";
 // import {Route, Switch, Link} from 'react-router-dom';
-import './ProfilePage.css';
+import './MemberView.css';
 
-export default function ProfilePage(props){
+export default function MemberView(props){
     return(
         <div>
-            <h1>Profile page</h1>
+            <h1>MemberView</h1>
         </div>
     )
 }

@@ -1,11 +1,11 @@
 import React from "react";
 // import {Route, Switch, Link} from 'react-router-dom';
-import './ProfilePage.css';
+import './AddCoffeeBtn.css';
 
-export default function ProfilePage(props){
-    return(
+export default function AddCoffeeBtn(props){
+    return (
         <div>
-            <h1>Profile page</h1>
+            Add Coffe Button
         </div>
     )
 }

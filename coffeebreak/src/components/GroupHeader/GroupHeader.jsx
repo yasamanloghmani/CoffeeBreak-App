@@ -1,11 +1,11 @@
 import React from "react";
 // import {Route, Switch, Link} from 'react-router-dom';
-import './ProfilePage.css';
+import './GroupHeader.css';
 
-export default function ProfilePage(props){
+export default function GroupHeader(props){
     return(
         <div>
-            <h1>Profile page</h1>
+            <h1>Group header</h1>
         </div>
     )
 }

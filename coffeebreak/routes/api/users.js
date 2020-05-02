@@ -4,7 +4,6 @@ const userCtrl = require('../../controllers/users');
 
 // Should change all user routes to /signup /login /update and change controllers functions
 router.get('/users', userCtrl.index);
-router.post('/users', userCtrl.create);
 router.get('/users/:id', userCtrl.show);
 router.put('/users/:id', userCtrl.update);
 router.delete('/users/:id', userCtrl.deleteOne);
@@ -20,7 +19,7 @@ router.get('/users/:id/coffees', userCtrl.allCoffees);
 
 
 // New routes for signup and signin
-router.post('/signup', usersCtrl.signup);
+router.post('/signup', userCtrl.signup);
 
 
 module.exports = router;
