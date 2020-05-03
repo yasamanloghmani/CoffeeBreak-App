@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const Group = require('../models/group');
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET;
 
 module.exports = {
   index,
@@ -19,7 +21,8 @@ async function signup(req, res) {
   const user = new User(req.body);
   try {
     await user.save();
-    res.json(user);
+    const token = createJWT(user);
+    res.json({ token });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -145,4 +148,12 @@ function allCoffees(req, res) {
        coffees = user.coffees;
       res.json(coffees);
     });
+}
+
+function createJWT(user) {
+  return jwt.sign(
+    {user}, // data payload
+    SECRET,
+    {expiresIn: '24h'}
+  );
 }

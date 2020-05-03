@@ -1,11 +1,30 @@
 import React from "react";
-// import {Route, Switch, Link} from 'react-router-dom';
-import './Menu.css'
+import {Link} from 'react-router-dom';
+import './Menu.css';
+// import userService from '../../utils/userService';
+// import SignupPage from '../../pages/SignupPage/SignupPage';
+// import LoginPage from '../../pages/LoginPage/LoginPage';
 
-export default function Menu(props){
-    return(
-        <div>
-            <h1>Menu</h1>
-        </div>
-    )
-}
+const Menu = (props) => {
+    let nav = props.user ?
+      <div>
+        
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+      </div>
+      :
+      <div>
+        <Link to='/login' className='NavBar-link'>LOG IN</Link>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+      </div>;
+  
+    return (
+      <div className='NavBar'>
+        {nav}
+      </div>
+    );
+  };
+export default Menu;
