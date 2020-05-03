@@ -1,9 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import './Menu.css';
-// import userService from '../../utils/userService';
-// import SignupPage from '../../pages/SignupPage/SignupPage';
-// import LoginPage from '../../pages/LoginPage/LoginPage';
+
 
 const Menu = (props) => {
     let nav = props.user ?

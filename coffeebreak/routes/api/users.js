@@ -20,6 +20,6 @@ router.get('/:id/coffees', userCtrl.allCoffees);
 
 // New routes for signup and signin
 router.post('/signup', userCtrl.signup);
-
+router.post('/login', userCtrl.login);
 
 module.exports = router;
