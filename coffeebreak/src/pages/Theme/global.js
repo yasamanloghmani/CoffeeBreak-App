@@ -54,4 +54,12 @@ export const GlobalStyles = createGlobalStyle`
   .addBtn{
     background: ${({ theme }) => theme.mainBG};
   }
+  svg {
+    width: 300px;
+    height: 300px;
+    padding:0;
+    margin:0;
+    border-radius: 50%;
+    box-shadow:  ${({ theme }) => theme.mainShadow};
+  }
   `

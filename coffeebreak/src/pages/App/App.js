@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 // import logo from '../../logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -29,7 +30,6 @@ toggleTheme = () => {
   }
 }
 
-
 handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -53,6 +53,7 @@ handleDeleteProfile = () => {
         theme={this.state.theme}
       />
       <div>
+      
       <Switch>  
         <Route
           exact
