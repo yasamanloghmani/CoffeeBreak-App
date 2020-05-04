@@ -1,0 +1,8 @@
+.addBtn{
+    width:80px!important;
+    height:80px;
+    border-radius: 50%!important;
+}
+.addBtn>.icons{
+font-size: 40px;
+}

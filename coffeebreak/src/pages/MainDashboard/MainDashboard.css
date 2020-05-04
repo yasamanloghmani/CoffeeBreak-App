@@ -1,9 +1,3 @@
 .MainDashboard {
-    border-radius: 20px;
-    background: linear-gradient(145deg, #ffffff, #d6dce6);
-    box-shadow:  9px 9px 17px #d6dce6, 
-             -9px -9px 17px #ffffff;
-    margin:auto;
-    padding: 20px;
-    height: 90vh;
+  
 }

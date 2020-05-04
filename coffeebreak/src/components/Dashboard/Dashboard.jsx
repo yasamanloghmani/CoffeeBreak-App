@@ -7,11 +7,12 @@ import CoffeeChart from '../CoffeeChart/CoffeeChart';
 
 export default function Dashboard(props){
     return(
-        <div>
+        <div className='dashboardbox'>
             <h1>Dashboard</h1>
-            <AddCofeeBtn></AddCofeeBtn>
+            
             <CostChart></CostChart>
             <CoffeeChart></CoffeeChart>
+            <AddCofeeBtn></AddCofeeBtn>
         </div>
     )
 }

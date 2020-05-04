@@ -1,10 +1,12 @@
 .App {
   text-align: center;
-  background-color: #efeeee;
-  background-color: #efeeee;
+  background-color: #ffffff;
+  background-color: #ffffff;
+  font-family: 'Varela Round', sans-serif;
 }
 body {
-  background-color: #efeeee;
+  background-color: #ffffff;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .App-logo {
@@ -41,15 +43,28 @@ body {
     transform: rotate(360deg);
   }
 }
-
-
 .main-page{
   margin:auto;
-  margin-top: 30px;
+  margin-top: 15px;
   padding: 20px;
-  /* width: 98%; */
   height: 90vh;
   display: grid;
   grid-template-columns: 9% 90%;
   justify-content: space-between;
+}
+.MainDashboard, .GroupPage, .ProfilePage{
+  margin:auto;
+  padding: 20px;
+  height: 90vh;
+}
+.MainDashboard, .GroupPage{
+  display: grid;
+  grid-template-columns: 74% 24%;
+  justify-content: space-between;
+}
+
+.flexLeft{
+  display: grid;
+  grid-template-rows: 34% 64%;
+  align-content: space-between;
 }

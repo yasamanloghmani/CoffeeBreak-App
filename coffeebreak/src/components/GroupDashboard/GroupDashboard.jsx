@@ -6,7 +6,7 @@ import MemberView from '../MemberView/MemberView';
 
 export default function GroupDashboard(props){
     return(
-        <div>
+        <div className='dashboardbox'>
             <h1>Group dashboard</h1>
             <GroupChart></GroupChart>
             <MemberView></MemberView>

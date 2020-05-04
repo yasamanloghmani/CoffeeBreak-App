@@ -4,8 +4,9 @@ import './GroupHeader.css';
 
 export default function GroupHeader(props){
     return(
-        <div>
-            <h1>Group header</h1>
-        </div>
+        <div className='headerbox fixed'>
+        <h1>CoffeeBreak</h1>
+        <img src='images/group.png' className='HeaderImg'/>
+    </div>
     )
 }

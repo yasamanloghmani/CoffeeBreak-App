@@ -4,7 +4,7 @@ import './ProfilePage.css';
 
 export default function ProfilePage(props){
     return(
-        <div>
+        <div className='ProfilePage'>
             <h1>Profile page</h1>
         </div>
     )

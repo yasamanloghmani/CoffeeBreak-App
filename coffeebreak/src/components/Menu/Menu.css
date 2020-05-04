@@ -6,7 +6,7 @@
     border-radius: 10px;
 }
 
-.Menu-link {
+.Menu-link , .addBtn{
     margin: 0 0.9rem;
     padding: 0.5rem;
     border-radius: 10px;
@@ -23,12 +23,12 @@
 }
 
 
-.Menu-link:hover {
+.Menu-link:hover , .addBtn:hover{
     text-decoration: none;
     color: orangered;
     transform: scale(1.05);
 }
-.Menu-link:focus {
+.Menu-link:focus , .addBtn:focus{
     color: orangered;
     outline: none;
     transform: scale(1);
