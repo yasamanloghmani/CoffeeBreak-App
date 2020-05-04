@@ -47,9 +47,9 @@ body {
   margin:auto;
   margin-top: 30px;
   padding: 20px;
-  width: 98%;
+  /* width: 98%; */
   height: 90vh;
   display: grid;
-  grid-template-columns: 7.1% 90%;
+  grid-template-columns: 8% 90%;
   justify-content: space-between;
 }

@@ -10,13 +10,25 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import GroupPage from '../GroupPage/GroupPage';
 import MainDashboard from '../MainDashboard/MainDashboard';
 import userService from '../../utils/userService';
-
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../Theme/theme';
+import { GlobalStyles } from '../Theme/global';
 // import tokenService from '../../utils/tokenService';
 
 class App extends Component {
   state = {
-    user: userService.getUser()
+    user: userService.getUser(),
+    theme : 'light'
 }
+
+toggleTheme = () => {
+  if (this.state.theme === 'light') {
+    this.setState({theme : 'dark'});
+  } else {
+    this.setState({theme : 'light'});
+  }
+}
+
 
 handleLogout = () => {
     userService.logout();
@@ -31,13 +43,15 @@ handleDeleteProfile = () => {
 };
   render() {
   return (
+    <ThemeProvider theme={this.state.theme === 'light' ? lightTheme : darkTheme}>
     <div className='main-page'>
-      
+    <GlobalStyles />
       <Menu 
         user={this.state.user}
         handleLogout={this.handleLogout}
       />
       <div>
+      <button onClick={this.toggleTheme}>Toggle theme</button>
       <Switch>  
         <Route
           exact
@@ -77,6 +91,7 @@ handleDeleteProfile = () => {
         </Switch>
       </div>
     </div>
+    </ThemeProvider>
   );
         }
 }
