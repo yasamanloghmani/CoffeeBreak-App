@@ -50,6 +50,6 @@ body {
   /* width: 98%; */
   height: 90vh;
   display: grid;
-  grid-template-columns: 8% 90%;
+  grid-template-columns: 9% 90%;
   justify-content: space-between;
 }

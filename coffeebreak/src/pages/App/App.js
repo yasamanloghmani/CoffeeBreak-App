@@ -49,9 +49,10 @@ handleDeleteProfile = () => {
       <Menu 
         user={this.state.user}
         handleLogout={this.handleLogout}
+        toggleTheme={this.toggleTheme}
+        theme={this.state.theme}
       />
       <div>
-      <button onClick={this.toggleTheme}>Toggle theme</button>
       <Switch>  
         <Route
           exact

@@ -4,21 +4,14 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    background: linear-gradient(145deg, #ffffff, #d6dce6);
-    box-shadow:  9px 9px 17px #d6dce6, 
-             -9px -9px 17px #ffffff;
-
 }
 
 .Menu-link {
-    margin: 0 1rem;
+    margin: 0 0.9rem;
     padding: 0.5rem;
-    border: 2px solid rgba(255,255,255,.3);
-    box-shadow: 4px 4px 6px 0 rgba(0,0,0,.1), -4px -4px 6px rgba(255,255,255,1);
     border-radius: 10px;
     cursor: pointer;
     transition: color 0.2s ease-out, transform 0.2s ease-out;
-    color: dimgray;
     display: block;
     font-size: 12px;
     margin-top: 20px;
@@ -34,13 +27,11 @@
     text-decoration: none;
     color: orangered;
     transform: scale(1.05);
-    box-shadow: 4px 4px 10px 0 rgba(0,0,0,.1), -4px -4px 10px rgba(255,255,255,1);
 }
 .Menu-link:focus {
     color: orangered;
     outline: none;
-      transform: scale(0.95);
-      box-shadow: 4px 4px 10px 0 rgba(0,0,0,.1), -4px -4px 10px rgba(255,255,255,1), 4px 4px 10px 0 rgba(0,0,0,.1) inset, -4px -4px 10px rgba(255,255,255,1) inset;
+    transform: scale(1);
 }
 
 .icons{
@@ -51,3 +42,38 @@
     margin: 0px auto;
     text-shadow: 2px 2px 4px rgba(0,0,0,.3), -2px -2px 4px rgba(255,255,255,1);
 }
+
+.moodLight{
+    width: 35px;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.moodDark{
+    width: 35px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.moodSection {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    margin-left: 15px;
+}
+
+.moodSection .icons{
+    font-size: 1rem;
+    
+}
+.moodSection>p{
+    font-size: 12px;
+    font-weight: bold;
+    transform: rotate(-90deg);
+    margin-top: 20px;
+    padding: 0;
+    text-align: center;
+    margin-left: 0;
+    margin-left: 15px;
+}
+
