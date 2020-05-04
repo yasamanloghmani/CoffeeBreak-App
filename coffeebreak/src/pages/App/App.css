@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-color: #efeeee;
+  background-color: #efeeee;
+}
+body {
+  background-color: #efeeee;
 }
 
 .App-logo {
@@ -35,4 +40,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.main-page{
+  margin:auto;
+  margin-top: 30px;
+  padding: 20px;
+  width: 98%;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 7.1% 90%;
+  justify-content: space-between;
 }

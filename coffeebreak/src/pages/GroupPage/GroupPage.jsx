@@ -10,7 +10,6 @@ export default function GroupPage(props){
     return(
         <div>
             <h1>Group page</h1>
-            <Menu></Menu>
             <GroupHeader></GroupHeader>
             <GroupDashboard></GroupDashboard>
             <ChatBox></ChatBox>

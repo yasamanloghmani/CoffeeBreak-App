@@ -1,26 +1,29 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUserCog} from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 import './Menu.css';
 
 
 const Menu = (props) => {
     let nav = props.user ?
       <div>
-        
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+            <Link to='/' className='Menu-link'><FontAwesomeIcon icon={ faCoffee } className='icons' />Dashboard</Link>
+            <Link to='/group' className='Menu-link'><FontAwesomeIcon icon={ faUsers } className='icons' />Group</Link>
+            <Link to='/profile' className='Menu-link'><FontAwesomeIcon icon={ faUserCog } className='icons' />Profile</Link>
+            <Link to='' className='Menu-link' onClick={props.handleLogout}><FontAwesomeIcon icon={ faSignOutAlt } className='icons' />LOG OUT</Link>
       </div>
       :
       <div>
-        <Link to='/login' className='NavBar-link'>LOG IN</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+        <Link to='/login' className='Menu-link'>LOG IN</Link>
+        <Link to='/signup' className='Menu-link'>SIGN UP</Link>
       </div>;
   
     return (
-      <div className='NavBar'>
+      <div className='Menu'>
         {nav}
       </div>
     );

@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 // import logo from '../../logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 import Menu from '../../components/Menu/Menu';
-import MainHeader from '../../components/MainHeader/MainHeader';
-import Dashboard from '../../components/Dashboard/Dashboard';
-import GroupView from '../../components/GroupView/GroupView';
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
+import GroupPage from '../GroupPage/GroupPage';
+import MainDashboard from '../MainDashboard/MainDashboard';
 import userService from '../../utils/userService';
+
 // import tokenService from '../../utils/tokenService';
 
 class App extends Component {
@@ -24,23 +26,47 @@ handleLogout = () => {
 handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
 }
-
+handleDeleteProfile = () => {
+  this.setState({ user: null });
+};
   render() {
   return (
-    <div>
-      <h1>DashBoard</h1>
-      <Menu
+    <div className='main-page'>
+      
+      <Menu 
         user={this.state.user}
         handleLogout={this.handleLogout}
       />
-      <MainHeader></MainHeader>
-      <Dashboard></Dashboard>
-      <GroupView></GroupView>
-      <Switch>
-            
-        <Route exact path="/" render={() => (
-            <h1>Hello.</h1>
+      <div>
+      <Switch>  
+        <Route
+          exact
+          path="/"
+          render={() => <MainDashboard user={this.state.user} />}
+        />
+        <Route 
+          exact
+           path="/profile" 
+           render={() => (
+              <ProfilePage 
+                user = {this.state.user}
+                handleDeleteProfile={this.handleDeleteProfile}
+              />
         )} />
+        <Route
+      
+          exact
+          path="/group"
+          render={({ history }) =>
+          userService.getUser() ? (
+            <GroupPage
+              history={history}
+              user={this.state.user}/>
+              ) : (
+                <Redirect to="/login" />
+            )
+          }
+      />
         <Route exact path="/signup" render={({ history }) => (
             <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
         )} />
@@ -49,9 +75,8 @@ handleSignupOrLogin = () => {
         )} />
         
         </Switch>
+      </div>
     </div>
-  
-   
   );
         }
 }
