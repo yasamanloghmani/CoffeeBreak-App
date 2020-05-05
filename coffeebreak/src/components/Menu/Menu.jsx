@@ -17,7 +17,7 @@ const Menu = (props) => {
             <Link to='/profile' className='Menu-link'><FontAwesomeIcon icon={ faUserCog } className='icons' />Profile</Link>
             <Link to='' className='Menu-link' onClick={props.handleLogout}><FontAwesomeIcon icon={ faSignOutAlt } className='icons' />LOG OUT</Link>
             <section className='moodSection'>
-            <Link onClick={props.toggleTheme} className= {props.theme === 'light' ? 'Menu-link moodLight'  : 'Menu-link moodDark'} >
+            <Link to='' onClick={props.toggleTheme} className= {props.theme === 'light' ? 'Menu-link moodLight'  : 'Menu-link moodDark'} >
               {props.theme === 'light' ?  <FontAwesomeIcon icon={ faSun } className='icons' /> :<FontAwesomeIcon icon={ faMoon } className='icons' /> } 
             </Link>
             <p>{props.theme === 'light' ? 'Light'  : 'Dark'} </p>

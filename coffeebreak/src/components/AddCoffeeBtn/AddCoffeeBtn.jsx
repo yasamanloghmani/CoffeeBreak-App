@@ -27,12 +27,13 @@ class AddCoffeeBtn extends Component{
           invalidForm: !this.formRef.current.checkValidity()
         });
       };
+      async shouldComponentUpdate(){}
     render(){
         return (
             <div className='AddCoffeeBtn'>
                 <form className='coffeeForm' ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
                     <div className="col-auto">
-                        <label className="sr-only" for="inlineFormInputGroup">Coffee</label>
+                        <label className="sr-only">Coffee</label>
                         <div className="input-group mb-2">
                             <div className="input-group-prepend">
                                 <div className="input-group-text">( L )</div>
@@ -46,7 +47,7 @@ class AddCoffeeBtn extends Component{
                         </div>
                     </div>
                     <div className="col-auto">
-                        <label className="sr-only" for="inlineFormInputGroup">Cost</label>
+                        <label className="sr-only">Cost</label>
                         <div className="input-group mb-2">
                             <div className="input-group-prepend">
                                 <div className="input-group-text">( $ )</div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import coffeeService from '../../utils/coffeeService';
+// import coffeeService from '../../utils/coffeeService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Route, Switch, Redirect} from 'react-router-dom';
@@ -17,17 +17,7 @@ import { GlobalStyles } from '../Theme/global';
 
 class App extends Component {
   state = {
-    user: userService.getUser(),
-    coffees : [],
-    theme : 'light'
-}
-handleAddCoffee = async newCoffeeData => {
-  const coffees = await coffeeService.create(newCoffeeData, this.state.user.id);
-  this.setState(state => ({
-    coffees
-  }),
-  // Using cb to wait for state to update before rerouting
-  () => this.props.history.push('/'));
+    user: userService.getUser()
 }
 
 toggleTheme = () => {
@@ -50,11 +40,6 @@ handleDeleteProfile = () => {
   this.setState({ user: null });
 };
 
-async componentDidMount() {
-  const coffees = await coffeeService.getAll(this.state.user.id);
-  this.setState({coffees});
-}
-
 
   render() {
   return (
@@ -73,17 +58,33 @@ async componentDidMount() {
         <Route
           exact
           path="/"
-          render={() => <MainDashboard user={this.state.user} handleAddCoffee={this.handleAddCoffee}/>}
-        />
+          render={({ history }) => 
+          userService.getUser() ? (
+          <MainDashboard
+            history={history}
+            user={this.state.user}
+            
+            />
+            ) : (
+              <Redirect to="/login" />
+              )
+          }
+      />
         <Route 
           exact
            path="/profile" 
-           render={() => (
+           render={({ history }) => 
+            userService.getUser() ? (
               <ProfilePage 
+                history={history}
                 user = {this.state.user}
                 handleDeleteProfile={this.handleDeleteProfile}
               />
-        )} />
+              ) : (
+                <Redirect to="/login" />
+                )
+              }
+          />
         <Route
       
           exact

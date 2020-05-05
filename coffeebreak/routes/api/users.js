@@ -3,10 +3,10 @@ var router = express.Router();
 const userCtrl = require('../../controllers/users');
 
 // Should change all user routes to /signup /login /update and change controllers functions
-router.get('/', userCtrl.index);
-router.get('/:id', userCtrl.show);
-router.put('/:id', userCtrl.update);
-router.delete('/:id', userCtrl.deleteOne);
+// router.get('/', userCtrl.index);
+// router.get('/:id', userCtrl.show);
+// router.put('/:id', userCtrl.update);
+// router.delete('/:id', userCtrl.deleteOne);
 
 
 
