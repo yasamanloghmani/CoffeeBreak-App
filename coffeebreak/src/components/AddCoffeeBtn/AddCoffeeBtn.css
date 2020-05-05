@@ -1,8 +1,27 @@
 .addBtn{
-    width:80px!important;
-    height:80px;
-    border-radius: 50%!important;
+    width:50px!important;
+    height:50px;
+    border-radius: 10px!important;
+    margin: 0 auto;
 }
 .addBtn>.icons{
-font-size: 40px;
+font-size: 20px;
+}
+
+.coffeeForm{
+    width: 60%;
+    margin : 0px auto;
+}
+
+.AddCoffeeBtn{
+    text-align: center;
+    display: grid;
+    justify-content: center!important;
+    margin: 0px auto;
+    align-content: center;
+
+}
+
+.input-group-text{
+    background-color: rebeccapurple;
 }

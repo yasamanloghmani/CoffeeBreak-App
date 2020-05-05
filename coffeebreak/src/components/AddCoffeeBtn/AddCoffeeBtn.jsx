@@ -1,15 +1,80 @@
-import React from "react";
+import React, { Component } from "react";
 // import {Route, Switch, Link} from 'react-router-dom';
 import './AddCoffeeBtn.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-export default function AddCoffeeBtn(props){
-    return (
-        <div>
-            <button className='addBtn'>
-            <FontAwesomeIcon icon={ faPlus } className='icons ' />
-            </button>
-        </div>
-    )
+class AddCoffeeBtn extends Component{
+    state = {
+        invalidForm: true,
+        formData : {
+            numberOfCoffee : '0',
+            expense: '0'
+        }
+    };
+
+    formRef = React.createRef();
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.handleAddCoffee(this.state.formData);
+      };
+
+      handleChange = e => {
+        const formData = {...this.state.formData, [e.target.name]: e.target.value};
+        this.setState({
+          formData,
+          invalidForm: !this.formRef.current.checkValidity()
+        });
+      };
+    render(){
+        return (
+            <div className='AddCoffeeBtn'>
+                <form className='coffeeForm' ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
+                    <div className="col-auto">
+                        <label className="sr-only" for="inlineFormInputGroup">Coffee</label>
+                        <div className="input-group mb-2">
+                            <div className="input-group-prepend">
+                                <div className="input-group-text">( L )</div>
+                            </div>
+                            <input className="form-control" 
+                            name="numberOfCoffee"
+                            value={this.state.formData.numberOfCoffee}
+                            onChange={this.handleChange}
+                            required
+                             />
+                        </div>
+                    </div>
+                    <div className="col-auto">
+                        <label className="sr-only" for="inlineFormInputGroup">Cost</label>
+                        <div className="input-group mb-2">
+                            <div className="input-group-prepend">
+                                <div className="input-group-text">( $ )</div>
+                            </div>
+                            <input className="form-control"
+                             name="expense"
+                             value={this.state.formData.expense}
+                             onChange={this.handleChange}
+                            required
+                               />
+                        </div>
+                    </div>
+                    <button className='addBtn'
+                        type='submit'
+                        disabled={this.state.invalidForm}
+                    >
+                        <FontAwesomeIcon icon={ faPlus } className='icons ' />
+                        Add
+                    </button>
+            
+            
+                </form>
+            
+            </div>
+            );
+
+    }
+
 }
+
+export default AddCoffeeBtn;

@@ -11,9 +11,8 @@ router.delete('/:id', userCtrl.deleteOne);
 
 
 // Should change all the routs of coffees and joingroup
-router.put('/:groupId/join', userCtrl.joinGroup);
-router.post('/:id/coffees', userCtrl.createCoffee);
-router.get('/:id/coffees', userCtrl.allCoffees);
+// router.put('/:groupId/join', userCtrl.joinGroup);
+// router.get('/:id/coffees', userCtrl.allCoffees);
 
 
 

@@ -13,7 +13,7 @@ class Dashboard extends Component{
                 <div className='gridchart'>
                     <CostChart user={this.props.user}></CostChart>
                     <CoffeeChart></CoffeeChart>
-                    <AddCofeeBtn></AddCofeeBtn>
+                    <AddCofeeBtn handleAddCoffee={this.props.handleAddCoffee}></AddCofeeBtn>
                 </div>
 
             </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import * as CoffeeService from '../../utils/coffeeService';
 // import logo from '../../logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -19,7 +19,17 @@ import { GlobalStyles } from '../Theme/global';
 class App extends Component {
   state = {
     user: userService.getUser(),
+    coffees : [],
     theme : 'light'
+}
+handleAddCoffee = async newCoffeeData => {
+  const newCoffee = await CoffeeService.create(newCoffeeData);
+  console.log(newCoffee);
+  this.setState(state => ({
+    coffees: [...state.coffees, newCoffee]
+  }),
+  // Using cb to wait for state to update before rerouting
+  () => this.props.history.push('/'));
 }
 
 toggleTheme = () => {
@@ -58,7 +68,7 @@ handleDeleteProfile = () => {
         <Route
           exact
           path="/"
-          render={() => <MainDashboard user={this.state.user} />}
+          render={() => <MainDashboard user={this.state.user} handleAddCoffee={this.handleAddCoffee}/>}
         />
         <Route 
           exact
