@@ -11,7 +11,7 @@ class MainDashboard extends Component{
             <div className='MainDashboard'>
                 <div className='flexLeft'>
                 <MainHeader user={this.props.user}></MainHeader>
-                <Dashboard user={this.props.user} handleAddCoffee={this.props.handleAddCoffee}></Dashboard>
+                <Dashboard user={this.props.user} handleAddCoffee={this.props.handleAddCoffee} coffees={this.props.coffees}></Dashboard>
                 </div>
                 <div className='flexRight'>
                 <GroupView></GroupView>

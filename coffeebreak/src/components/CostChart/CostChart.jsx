@@ -11,7 +11,7 @@ class CostChart extends Component{
     }
     calculateCost = () => {}
     componentDidMount() {
-        let percent =89;
+        let percent = this.props.user.limitOfExpense;
         this.setState({
         percent, data: this.getData(percent)
         });
@@ -23,7 +23,8 @@ class CostChart extends Component{
 
     render() {
         return (
-            <div className='chart'>
+            <div>
+                    <div className='chart'>
             <svg viewBox="0 0 400 400" width="100%" height="100%">
                 <VictoryPie
                 standalone={false}
@@ -54,7 +55,11 @@ class CostChart extends Component{
                 }}
                 </VictoryAnimation>
             </svg>
+            
             </div>
+            <p>hi{this.props.user.coffees[0].size}</p>
+            </div>
+            
         );
     }
    

@@ -11,7 +11,7 @@ class Dashboard extends Component{
             <div className='dashboardbox'>
                 <h1>Dashboard</h1>
                 <div className='gridchart'>
-                    <CostChart user={this.props.user}></CostChart>
+                    <CostChart user={this.props.user} coffees={this.props.coffees}></CostChart>
                     <CoffeeChart></CoffeeChart>
                     <AddCofeeBtn handleAddCoffee={this.props.handleAddCoffee}></AddCofeeBtn>
                 </div>

@@ -133,11 +133,10 @@ function createCoffee(req, res){
   .exec((err , user) => {
     user.coffees.push(req.body);
     user.save((err , updatedUser) => {
-      res.json(updatedUser);
+      res.json(updatedUser.coffees);
     })
   })
 }
-
 
 function allCoffees(req, res) {
   User.findById(req.params.id)
@@ -145,14 +144,18 @@ function allCoffees(req, res) {
   .exec((err , user) => {
       if (err) { 
       console.log("index error: " + err); }
-       coffees = user.coffees;
+      const startOfDay = new Date(new Date().setUTCHours(0, 0, 0, 0));
+      const endOfDay = new Date(new Date().setUTCHours(23, 59, 59, 999));
+       coffees = user.coffees.filter(coffee => {
+          return coffee.createdAt >= startOfDay &&  coffee.createdAt <= endOfDay
+       }) ;
       res.json(coffees);
     });
 }
 
 function createJWT(user) {
   return jwt.sign(
-    {user}, // data payload
+    {id : user.id, limitOfExpense: user.limitOfExpense , limitOfCoffee : user.limitOfCoffee , name : user.name, coffees : user.coffees, groups : user.groups}, // data payload
     SECRET,
     {expiresIn: '24h'}
   );

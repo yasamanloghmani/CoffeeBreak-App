@@ -8,8 +8,8 @@ class AddCoffeeBtn extends Component{
     state = {
         invalidForm: true,
         formData : {
-            numberOfCoffee : '0',
-            expense: '0'
+            size : '0',
+            price: '0'
         }
     };
 
@@ -38,8 +38,8 @@ class AddCoffeeBtn extends Component{
                                 <div className="input-group-text">( L )</div>
                             </div>
                             <input className="form-control" 
-                            name="numberOfCoffee"
-                            value={this.state.formData.numberOfCoffee}
+                            name="size"
+                            value={this.state.formData.size}
                             onChange={this.handleChange}
                             required
                              />
@@ -52,8 +52,8 @@ class AddCoffeeBtn extends Component{
                                 <div className="input-group-text">( $ )</div>
                             </div>
                             <input className="form-control"
-                             name="expense"
-                             value={this.state.formData.expense}
+                             name="price"
+                             value={this.state.formData.price}
                              onChange={this.handleChange}
                             required
                                />

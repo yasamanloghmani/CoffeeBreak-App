@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import * as CoffeeService from '../../utils/coffeeService';
-// import logo from '../../logo.svg';
+import coffeeService from '../../utils/coffeeService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Route, Switch, Redirect} from 'react-router-dom';
@@ -23,10 +22,9 @@ class App extends Component {
     theme : 'light'
 }
 handleAddCoffee = async newCoffeeData => {
-  const newCoffee = await CoffeeService.create(newCoffeeData);
-  console.log(newCoffee);
+  const coffees = await coffeeService.create(newCoffeeData, this.state.user.id);
   this.setState(state => ({
-    coffees: [...state.coffees, newCoffee]
+    coffees
   }),
   // Using cb to wait for state to update before rerouting
   () => this.props.history.push('/'));
@@ -51,6 +49,13 @@ handleSignupOrLogin = () => {
 handleDeleteProfile = () => {
   this.setState({ user: null });
 };
+
+async componentDidMount() {
+  const coffees = await coffeeService.getAll(this.state.user.id);
+  this.setState({coffees});
+}
+
+
   render() {
   return (
     <ThemeProvider theme={this.state.theme === 'light' ? lightTheme : darkTheme}>
