@@ -4,3 +4,7 @@
     justify-content: space-around;
     align-content: space-around;
 }
+
+.chart {
+    margin : 0 auto;
+}

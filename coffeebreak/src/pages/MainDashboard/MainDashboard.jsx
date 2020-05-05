@@ -27,11 +27,16 @@ getSizeData(sizepercent) {
 }
   handleAddCoffee = async newCoffeeData => {
     const coffees = await coffeeService.create(newCoffeeData, this.props.user.id);
-    this.setState(state => ({
-      coffees
-    }),
+    const sumSize = coffees.reduce(function(prev, cur) {
+      return prev + cur.size;
+    }, 0);
+    const sumCost = coffees.reduce(function(prev, cur){
+      return prev + cur.price;
+    }, 0);
+    const costpercent = (sumCost / this.props.user.limitOfExpense ) *100;
+    const sizepercent = (sumSize / this.props.user.limitOfCoffee ) *100;
+    this.setState({coffees, sumCost, sumSize, costpercent, costdata: this.getCostData(costpercent), sizepercent, sizedata: this.getSizeData(sizepercent)});
     // Using cb to wait for state to update before rerouting
-    () => this.props.history.push('/'));
   }
 
   async componentDidMount() {
@@ -48,7 +53,7 @@ getSizeData(sizepercent) {
   }
 
   async shouldComponentUpdate(){
-
+    return true;
   }
     render(){
         return(
@@ -59,7 +64,7 @@ getSizeData(sizepercent) {
                 </Dashboard>
                 </div>
                 <div className='flexRight'>
-                <GroupView></GroupView>
+                <GroupView user={this.props.user}></GroupView>
                 </div>
                 
                 

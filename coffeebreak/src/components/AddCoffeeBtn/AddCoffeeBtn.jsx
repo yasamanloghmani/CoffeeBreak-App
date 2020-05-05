@@ -27,10 +27,10 @@ class AddCoffeeBtn extends Component{
           invalidForm: !this.formRef.current.checkValidity()
         });
       };
-      async shouldComponentUpdate(){}
+
     render(){
         return (
-            <div className='AddCoffeeBtn'>
+            <div className='AddCoffeeBtn chart'>
                 <form className='coffeeForm' ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
                     <div className="col-auto">
                         <label className="sr-only">Coffee</label>

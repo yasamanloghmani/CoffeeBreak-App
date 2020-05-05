@@ -40,10 +40,13 @@ handleDeleteProfile = () => {
   this.setState({ user: null });
 };
 
+async shouldComponentUpdate(){
+  return true;
+}
 
   render() {
   return (
-    <ThemeProvider theme={this.state.theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={this.state.theme === 'dark' ? darkTheme : lightTheme}>
     <div className='main-page'>
     <GlobalStyles />
       <Menu 

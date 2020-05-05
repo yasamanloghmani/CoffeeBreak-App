@@ -66,4 +66,5 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.mainBG};
     color : ${({theme}) => theme.menuLinkColor};
   }
+ 
   `
