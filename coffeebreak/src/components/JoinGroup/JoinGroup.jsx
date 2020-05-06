@@ -24,7 +24,7 @@ class JoinGroup extends Component{
     render(){
 
         return(
-            <div>
+            <div className="JoinGroup">
                     <form className='' ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmitJoin}>
                     <div className="col-auto">
                         <label className="sr-only"></label>

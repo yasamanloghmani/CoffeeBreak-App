@@ -77,5 +77,8 @@ export const GlobalStyles = createGlobalStyle`
     box-shadow: ${({ theme }) => theme.menuLinkShadow};
     margin: 10px;
   }
+  .channelinfo > h1 {
+    font-size : 15px;
+  }
  
   `
