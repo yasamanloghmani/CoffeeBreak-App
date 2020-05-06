@@ -66,5 +66,16 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.mainBG};
     color : ${({theme}) => theme.menuLinkColor};
   }
+  .pspan{
+    box-shadow: ${({ theme }) => theme.menuLinkShadow};
+    
+  }
+  .pspan > span {
+    box-shadow : ${({ theme }) => theme.focusLinkShadow};
+  }
+  .members {
+    box-shadow: ${({ theme }) => theme.menuLinkShadow};
+    margin: 10px;
+  }
  
   `

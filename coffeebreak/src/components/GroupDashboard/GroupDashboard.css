@@ -13,3 +13,19 @@
     height: 100px;
     overflow-y: scroll;
 }
+
+
+.pspan{
+    margin-top: 20px;
+    color: orangered;
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.pspan > span {
+    margin-right: 10px;
+    padding: 7px;
+    border-radius: 5px;
+}

@@ -142,6 +142,7 @@ function userGroups(req, res){
       console.log("index error: " + err); }
     groups = user.groups;
     res.json(groups);
+    console.log(groups);
   });
   
 }

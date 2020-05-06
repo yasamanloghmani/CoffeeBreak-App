@@ -15,7 +15,7 @@ export default function GroupDashboard(props){
             </div>
             
             
-            <MemberView></MemberView>
+            <MemberView lastGroup={props.lastGroup}></MemberView>
         </div>
     )
 }

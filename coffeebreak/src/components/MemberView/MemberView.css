@@ -1,0 +1,13 @@
+.members {
+    float: left;
+    height: 38px;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+.members > p{
+    margin : auto;
+    font-size: 20px;
+    font-weight: bold;
+}

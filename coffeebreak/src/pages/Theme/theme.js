@@ -1,3 +1,9 @@
+function randomColor() {
+  return Math.floor(Math.random()*16777215).toString(16)
+}
+
+
+
 export const lightTheme = {
     body: '#f2f2f2',
     text: '#363537',
@@ -9,7 +15,8 @@ export const lightTheme = {
     mainShadow : '9px 9px 17px #d6dce6, -9px -9px 17px #ffffff',
     menuLinkColor: 'dimgray',
     hoverLinkShadow : '4px 4px 10px 0 rgba(0,0,0,.1), -4px -4px 10px rgba(255,255,255,1)',
-    focusLinkShadow : '4px 4px 10px 0 rgba(0,0,0,.1), -4px -4px 10px rgba(255,255,255,1), 4px 4px 10px 0 rgba(0,0,0,.1) inset, -4px -4px 10px rgba(255,255,255,1) inset'
+    focusLinkShadow : '4px 4px 10px 0 rgba(0,0,0,.1), -4px -4px 10px rgba(255,255,255,1), 4px 4px 10px 0 rgba(0,0,0,.1) inset, -4px -4px 10px rgba(255,255,255,1) inset',
+    
   }
   
   export const darkTheme = {
@@ -23,5 +30,6 @@ export const lightTheme = {
     mainShadow : '20px 20px 41px #2e2d2f, -20px -20px 41px #3e3d3f',
     menuLinkColor: 'lightgray',
     hoverLinkShadow : '4px 4px 10px 0 rgba(255,255,255,.1), -4px -4px 10px rgba(0,0,0,1)',
-    focusLinkShadow : '4px 4px 10px 0 rgba(255,255,255,.1), -4px -4px 10px rgba(0,0,0,1), 4px 4px 10px 0 rgba(255,255,255,.1) inset, -4px -4px 10px rgba(0,0,0,1) inset'
+    focusLinkShadow : '4px 4px 10px 0 rgba(255,255,255,.1), -4px -4px 10px rgba(0,0,0,1), 4px 4px 10px 0 rgba(255,255,255,.1) inset, -4px -4px 10px rgba(0,0,0,1) inset',
+    
   }

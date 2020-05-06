@@ -15,6 +15,9 @@ class GroupHeader extends Component{
                 <h5>{this.props.lastGroup.slogan}</h5>
             </li>
         </ul>
+
+            <p className='pspan'><span>Channel Password</span>5eb30bb61f1a291fbc85de39</p>
+        
         </div>
         )
     }
