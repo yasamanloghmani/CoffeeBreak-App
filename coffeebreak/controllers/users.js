@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 
 module.exports = {
-  // index,
-  // show,
+  index,
+  show,
   update,
   // deleteOne,
   joinGroup,
@@ -45,28 +45,28 @@ async function login(req, res) {
   }
 }
 
-// function index(req, res) {
-//     User.find()
-//       .populate('groups')
-//         .exec((err, users)=>{
-//         if (err) { 
-//           console.log("index error: " + err);
-//         }
-//         console.log(users)
-//         res.json(users);
-//       });
-//   }
+function index(req, res) {
+    User.find()
+      .populate('groups')
+        .exec((err, users)=>{
+        if (err) { 
+          console.log("index error: " + err);
+        }
+        console.log(users)
+        res.json(users);
+      });
+  }
   
-// function show(req, res) {
-//   User.findById(req.params.id)
-//     .populate('groups')
-//       .exec((err, user)=>{
-//         if (err) { 
-//           console.log("index error: " + err); }
-//         console.log(user)
-//         res.json(user);
-//       })
-// }
+function show(req, res) {
+  User.findById(req.params.id)
+    .populate('groups')
+      .exec((err, user)=>{
+        if (err) { 
+          console.log("index error: " + err); }
+        console.log(user)
+        res.json(user);
+      })
+}
 
 
 function update(req, res) {
@@ -93,16 +93,19 @@ function update(req, res) {
 
 
 function joinGroup(req, res){
+  
   Promise.all([User.findById(req.user.id), Group.findById(req.params.groupId)])
     .then(([user, group]) => {
         group.users.push(user)
         user.groups.push(group)
         return Promise.all([user.save(), group.save()])
     })
-    .then(([user, group]) => {
-         return res.json({ ...group})
+    .then(([user,group]) => {
+      return res.json({group});
      })
-    .catch((err) => {})
+    .catch((err) => {
+      console.log(err);
+    })
 }
 
 function createCoffee(req, res){

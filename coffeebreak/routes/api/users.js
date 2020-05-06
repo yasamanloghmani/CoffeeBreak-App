@@ -7,16 +7,14 @@ const userCtrl = require('../../controllers/users');
 router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login);
 // Should change all user routes to /signup /login /update and change controllers functions
-// router.get('/', userCtrl.index);
-// router.get('/:id', userCtrl.show);
+router.get('/', userCtrl.index);
+router.get('/:id', userCtrl.show);
 // router.put('/:id', userCtrl.update);
 // router.delete('/:id', userCtrl.deleteOne);
 
 
 
 // Should change all the routs of coffees and joingroup
-router.use(require('../../config/auth'));
-router.put('/:groupId/join', userCtrl.joinGroup);
 
 
 

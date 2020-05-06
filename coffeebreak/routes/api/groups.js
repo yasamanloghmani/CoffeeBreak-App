@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const groupctrl = require('../../controllers/groups');
+const userCtrl = require('../../controllers/users');
 
 router.get('/', groupctrl.index);
 router.post('/', groupctrl.create);
@@ -12,5 +13,10 @@ router.put('/:id/posts/:postId', groupctrl.updatePost)
 router.delete('/:id/posts/:postId', groupctrl.deletePost)
 router.get('/:id/posts', groupctrl.allPosts);
 router.get('/:id/posts/:postId', groupctrl.showPost)
+
+
+router.use(require('../../config/auth'));
+router.put('/:groupId/join', userCtrl.joinGroup);
+
 
 module.exports = router;

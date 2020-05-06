@@ -51,9 +51,9 @@ class MainDashboard extends Component{
   handleJoinGroup = async (groupId) => {
     const usergroup = await groupService.join(groupId);
     this.setState({usergroup});
+    console.log("user gorup main dash", usergroup)
 
   }
-  // ????????????
   async componentDidMount() {
     const coffees = await coffeeService.getAll(this.props.user.id);
     const group = await groupService.getAll();

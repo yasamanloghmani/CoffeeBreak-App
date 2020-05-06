@@ -26,7 +26,7 @@ function join(groupId) {
       method: 'PUT',
       headers: {'content-type': 'application/json','Authorization': 'Bearer '+ tokenService.getToken()},
       body: JSON.stringify()
-    }).then(res => {res.json(); console.log(res) });
+    }).then(res => res.json() );
 }
 
 
