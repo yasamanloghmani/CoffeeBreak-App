@@ -30,7 +30,7 @@ class JoinGroup extends Component{
                         <label className="sr-only"></label>
                         <div className="input-group mb-2">
                             <div className="input-group-prepend">
-                                <div className="input-group-text">group id</div>
+                                <div className="input-group-text">Password</div>
                             </div>
                             <input className="form-control" 
                             name="groupId"
@@ -41,11 +41,11 @@ class JoinGroup extends Component{
                         </div>
                     </div>
                     
-                    <button className=''
+                    <button className='btn bg-primary'
                         type='submit'
                         disabled={this.state.invalidForm}
                     >
-                        Create Group
+                        Join Channel
                     </button>
             
             

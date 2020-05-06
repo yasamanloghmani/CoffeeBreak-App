@@ -12,7 +12,8 @@ module.exports = {
   createCoffee,
   allCoffees,
   signup,
-  login
+  login,
+  userGroups
 };
 
 
@@ -101,7 +102,7 @@ function joinGroup(req, res){
         return Promise.all([user.save(), group.save()])
     })
     .then(([user,group]) => {
-      return res.json({group});
+      return res.json({user, group});
      })
     .catch((err) => {
       console.log(err);
@@ -134,9 +135,21 @@ function allCoffees(req, res) {
     });
 }
 
+function userGroups(req, res){
+  User.findById(req.params.id)
+  .exec((err, user ) => {
+    if(err){ 
+      console.log("index error: " + err); }
+    groups = user.groups;
+    res.json(groups);
+  });
+  
+}
+
+
 function createJWT(user) {
   return jwt.sign(
-    {id : user.id, limitOfExpense: user.limitOfExpense , limitOfCoffee : user.limitOfCoffee , name : user.name}, // data payload
+    {id : user.id, limitOfExpense: user.limitOfExpense , limitOfCoffee : user.limitOfCoffee , name : user.name, groups : user.groups}, // data payload
     SECRET,
     {expiresIn: '24h'}
   );

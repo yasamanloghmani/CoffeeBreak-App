@@ -13,11 +13,11 @@ const Menu = (props) => {
     let nav = props.user ?
       <div>
             <Link to='/' className='Menu-link'><FontAwesomeIcon icon={ faCoffee } className='icons' />Dashboard</Link>
-            <Link to='/group' className='Menu-link'><FontAwesomeIcon icon={ faUsers } className='icons' />Group</Link>
+            <Link to='/group' className='Menu-link'><FontAwesomeIcon icon={ faUsers } className='icons' />Channel</Link>
             <Link to='/profile' className='Menu-link'><FontAwesomeIcon icon={ faUserCog } className='icons' />Profile</Link>
             <Link to='' className='Menu-link' onClick={props.handleLogout}><FontAwesomeIcon icon={ faSignOutAlt } className='icons' />LOG OUT</Link>
             <section className='moodSection'>
-            <Link to='' onClick={props.toggleTheme} className= {props.theme === 'light' ? 'Menu-link moodLight'  : 'Menu-link moodDark'} >
+            <Link onClick={props.toggleTheme} className= {props.theme === 'light' ? 'Menu-link moodLight'  : 'Menu-link moodDark'} >
               {props.theme === 'light' ?  <FontAwesomeIcon icon={ faSun } className='icons' /> :<FontAwesomeIcon icon={ faMoon } className='icons' /> } 
             </Link>
             <p>{props.theme === 'light' ? 'Light'  : 'Dark'} </p>

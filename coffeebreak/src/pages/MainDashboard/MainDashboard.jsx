@@ -18,7 +18,7 @@ class MainDashboard extends Component{
     sizepercent: 0,
     sizedata: this.getSizeData(0),
     group : [{}],
-    usergroup : []
+    
     
    }
 
@@ -48,12 +48,6 @@ class MainDashboard extends Component{
     this.setState({group})
   }
 
-  handleJoinGroup = async (groupId) => {
-    const usergroup = await groupService.join(groupId);
-    this.setState({usergroup});
-    console.log("user gorup main dash", usergroup)
-
-  }
   async componentDidMount() {
     const coffees = await coffeeService.getAll(this.props.user.id);
     const group = await groupService.getAll();
@@ -80,7 +74,7 @@ class MainDashboard extends Component{
                 </Dashboard>
                 </div>
                 <div className='flexRight'>
-                <GroupView user={this.props.user} handleAddGroup={this.handleAddGroup} group={this.state.group} handleJoinGroup={this.handleJoinGroup}></GroupView>
+                <GroupView user={this.props.user} handleAddGroup={this.handleAddGroup} group={this.state.group} handleJoinGroup={this.props.handleJoinGroup}></GroupView>
                 </div>
                 
                 

@@ -6,6 +6,10 @@ const userCtrl = require('../../controllers/users');
 
 router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login);
+
+
+
+router.get('/:id/groups', userCtrl.userGroups);
 // Should change all user routes to /signup /login /update and change controllers functions
 router.get('/', userCtrl.index);
 router.get('/:id', userCtrl.show);

@@ -34,7 +34,7 @@ function index(req, res) {
 
 function show(req, res) {
 Group.findById(req.params.id)
-  .populate('user')
+  .populate('users', 'name')
     .exec((err, group)=>{
       if (err) { 
         console.log("index error: " + err); }

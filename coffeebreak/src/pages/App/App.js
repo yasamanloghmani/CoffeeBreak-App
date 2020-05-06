@@ -13,11 +13,13 @@ import userService from '../../utils/userService';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../Theme/theme';
 import { GlobalStyles } from '../Theme/global';
+import groupService from '../../utils/groupService';
 // import tokenService from '../../utils/tokenService';
 
 class App extends Component {
   state = {
-    user: userService.getUser()
+    user: userService.getUser(),
+    
 }
 
 toggleTheme = () => {
@@ -39,6 +41,14 @@ handleSignupOrLogin = () => {
 handleDeleteProfile = () => {
   this.setState({ user: null });
 };
+
+handleJoinGroup = async (groupId) => {
+  const usergroup = await groupService.join(groupId);
+  const user = usergroup.user;
+  // const group = usergroup.group;
+  this.setState({user})
+  
+}
 
 async shouldComponentUpdate(){
   return true;
@@ -66,7 +76,8 @@ async shouldComponentUpdate(){
           <MainDashboard
             history={history}
             user={this.state.user}
-            
+            handleJoinGroup={this.handleJoinGroup}
+            usergroup={this.state.usergroup}
             />
             ) : (
               <Redirect to="/login" />
@@ -96,7 +107,10 @@ async shouldComponentUpdate(){
           userService.getUser() ? (
             <GroupPage
               history={history}
-              user={this.state.user}/>
+              user={this.state.user}
+              usergroup={this.state.usergroup}
+              />
+              
               ) : (
                 <Redirect to="/login" />
             )

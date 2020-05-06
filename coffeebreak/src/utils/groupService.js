@@ -21,6 +21,11 @@ function getAll() {
     .then(res => res.json())
 }
 
+function getGroup(groupId) {
+    return fetch(BASE_URL + groupId)
+    .then(res => res.json())
+}
+
 function join(groupId) {
     return fetch(`${BASE_URL}${groupId}/join`, {
       method: 'PUT',
@@ -33,6 +38,7 @@ function join(groupId) {
 export default {
     create,
     getAll,
-    join
+    join, 
+    getGroup
 }
  

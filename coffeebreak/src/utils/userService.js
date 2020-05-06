@@ -40,9 +40,16 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
+
+function getAllGroups(userId) {
+  return fetch(BASE_URL+ userId + '/groups')
+  .then(res => res.json())
+}
+
 export default {
   signup,
   getUser,
   logout,
-  login
+  login,
+  getAllGroups
 }

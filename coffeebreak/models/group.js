@@ -25,7 +25,16 @@ const groupSchema = new Schema({
         type : Schema.Types.ObjectId,
         ref : 'User'
     }],
-    post : [postSchema]
+    post : [postSchema],
+    slogan : {
+        type : String,
+        required : true
+    },
+    tips : [{
+        type : String,
+        required : true
+    }]
+
 },{
     timestamps : true,
 })
