@@ -20,6 +20,7 @@ class GroupPage extends Component{
         
     }
     async componentDidMount() {
+        
         const groups = await userService.getAllGroups(this.props.user.id);
         this.setState({groups});
         this.handleLastGroup(groups[groups.length-1]) 

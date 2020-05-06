@@ -1,7 +1,6 @@
 import tokenService from './tokenService';
 const BASE_URL = '/api/coffees/';
 function create(coffee, userId) {
-    
     return fetch(BASE_URL + userId, {
         method: 'POST',
         headers: {

@@ -16,7 +16,7 @@ class GroupHeader extends Component{
             </li>
         </ul>
 
-            <p className='pspan'><span>Channel Password</span>5eb30bb61f1a291fbc85de39</p>
+        <p className='pspan'><span>Channel Password</span>{this.props.lastGroup._id}</p>
         
         </div>
         )

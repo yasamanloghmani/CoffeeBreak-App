@@ -46,10 +46,38 @@ function getAllGroups(userId) {
   .then(res => res.json())
 }
 
+function updateUser(user) {
+  return fetch(BASE_URL + "update", {
+      method: "PUT",
+      headers: new Headers({ "Content-Type": "application/json" }),
+      body: JSON.stringify(user)
+  })
+      .then(res => {
+          if (res.ok) return res.json();
+          throw new Error("Couldn't update.");
+      })
+      .then(({ token }) => tokenService.setToken(token));
+}
+
+function deleteUser(user) {
+  return fetch(BASE_URL + "delete", {
+      method: "DELETE",
+      headers: new Headers({ "Content-Type": "application/json" }),
+      body: JSON.stringify(user)
+  })
+      .then(res => {
+          if (res.ok) return res.json();
+          throw new Error("Couldn't delete.");
+      })
+      .then(({ token }) => tokenService.setToken(token));
+}
+
 export default {
   signup,
   getUser,
   logout,
   login,
-  getAllGroups
+  getAllGroups,
+  updateUser,
+  deleteUser
 }

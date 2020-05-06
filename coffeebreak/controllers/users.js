@@ -6,14 +6,16 @@ const SECRET = process.env.SECRET;
 module.exports = {
   index,
   show,
-  update,
+  // update,
   // deleteOne,
   joinGroup,
   createCoffee,
   allCoffees,
   signup,
   login,
-  userGroups
+  userGroups,
+  deleteUser,
+  updateUser
 };
 
 
@@ -69,17 +71,42 @@ function show(req, res) {
       })
 }
 
-
-function update(req, res) {
-  User.findByIdAndUpdate(req.params.id, req.body, {new: true})
-    .populate('groups')
-      .exec((err, user)=>{
-        if (err) { 
-          console.log("index error: " + err); }
-        console.log(user)
-        res.json(user);
-      })
+async function updateUser(req, res) {
+  await User.findOne({ email: req.body.email }, (err, user) => {
+      user.name = req.body.name;
+      user.email = req.body.email;
+      try {
+          user.save();
+          const token = createJWT(user);
+          res.json({ token });
+      } catch (err) {
+          res.status(400).json(err);
+      }
+  });
 }
+
+async function deleteUser(req, res) {
+  await User.findOne({ email: req.body.email }, (err, user) => {
+      try {
+          user.remove();
+          res.status(200).json({ message: "User deleted!" });
+      } catch (err) {
+          res.status(400).json({ err });
+      }
+  });
+}
+
+
+// function update(req, res) {
+//   User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+//     .populate('groups')
+//       .exec((err, user)=>{
+//         if (err) { 
+//           console.log("index error: " + err); }
+//         console.log(user)
+//         res.json(user);
+//       })
+// }
 
 // function deleteOne(req, res) {
 //   User.findByIdAndDelete(req.params.id)
@@ -140,9 +167,9 @@ function userGroups(req, res){
   .exec((err, user ) => {
     if(err){ 
       console.log("index error: " + err); }
-    groups = user.groups;
-    res.json(groups);
-    console.log(groups);
+      groups = user.groups;
+      res.json(groups);
+    
   });
   
 }
@@ -150,7 +177,7 @@ function userGroups(req, res){
 
 function createJWT(user) {
   return jwt.sign(
-    {id : user.id, limitOfExpense: user.limitOfExpense , limitOfCoffee : user.limitOfCoffee , name : user.name, groups : user.groups}, // data payload
+    {id : user.id, limitOfExpense: user.limitOfExpense , limitOfCoffee : user.limitOfCoffee , name : user.name, groups : user.groups , email : user.email}, // data payload
     SECRET,
     {expiresIn: '24h'}
   );
