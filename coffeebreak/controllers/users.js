@@ -4,10 +4,10 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 
 module.exports = {
-  index,
-  show,
+  // index,
+  // show,
   update,
-  deleteOne,
+  // deleteOne,
   joinGroup,
   createCoffee,
   allCoffees,
@@ -45,28 +45,28 @@ async function login(req, res) {
   }
 }
 
-function index(req, res) {
-    User.find()
-      .populate('groups')
-        .exec((err, users)=>{
-        if (err) { 
-          console.log("index error: " + err);
-        }
-        console.log(users)
-        res.json(users);
-      });
-  }
+// function index(req, res) {
+//     User.find()
+//       .populate('groups')
+//         .exec((err, users)=>{
+//         if (err) { 
+//           console.log("index error: " + err);
+//         }
+//         console.log(users)
+//         res.json(users);
+//       });
+//   }
   
-function show(req, res) {
-  User.findById(req.params.id)
-    .populate('groups')
-      .exec((err, user)=>{
-        if (err) { 
-          console.log("index error: " + err); }
-        console.log(user)
-        res.json(user);
-      })
-}
+// function show(req, res) {
+//   User.findById(req.params.id)
+//     .populate('groups')
+//       .exec((err, user)=>{
+//         if (err) { 
+//           console.log("index error: " + err); }
+//         console.log(user)
+//         res.json(user);
+//       })
+// }
 
 
 function update(req, res) {
@@ -80,51 +80,29 @@ function update(req, res) {
       })
 }
 
-function deleteOne(req, res) {
-  User.findByIdAndDelete(req.params.id)
-    .populate('groups')
-      .exec((err, user)=>{
-        if (err) { 
-          console.log("index error: " + err); }
-        console.log(user)
-        res.json(user);
-  })
-}
+// function deleteOne(req, res) {
+//   User.findByIdAndDelete(req.params.id)
+//     .populate('groups')
+//       .exec((err, user)=>{
+//         if (err) { 
+//           console.log("index error: " + err); }
+//         console.log(user)
+//         res.json(user);
+//   })
+// }
 
 
 function joinGroup(req, res){
-  Group.findById(req.params.groupId)
-  .populate("user")
-      .exec((err, group) => {
-        if(err){
-           console.log("index error: " + err);
-        }
-        console.log(req.body.userId)
-        group.users.push(req.body.userId);
-        console.log(group);
-        group.save((err, updatedGroup)=>{
-          if (err) {
-            console.log("create error: " + err);
-          }
-          res.json(updatedGroup);
-        })
-      })
-      User.findById(req.body.userId)
-      .populate('group')
-      .exec(
-        (err, user) => {
-          if(err){
-             console.log("index error: " + err);
-          }
-          user.groups.push(req.params.groupId);
-          user.save((err, updatedUser)=>{
-            if (err) {
-              console.log("create error: " + err);
-            }
-            res.json(updatedUser);
-          })
-        }
-      )
+  Promise.all([User.findById(req.user.id), Group.findById(req.params.groupId)])
+    .then(([user, group]) => {
+        group.users.push(user)
+        user.groups.push(group)
+        return Promise.all([user.save(), group.save()])
+    })
+    .then(([user, group]) => {
+         return res.json({ ...group})
+     })
+    .catch((err) => {})
 }
 
 function createCoffee(req, res){
@@ -155,7 +133,7 @@ function allCoffees(req, res) {
 
 function createJWT(user) {
   return jwt.sign(
-    {id : user.id, limitOfExpense: user.limitOfExpense , limitOfCoffee : user.limitOfCoffee , name : user.name, coffees : user.coffees, groups : user.groups}, // data payload
+    {id : user.id, limitOfExpense: user.limitOfExpense , limitOfCoffee : user.limitOfCoffee , name : user.name}, // data payload
     SECRET,
     {expiresIn: '24h'}
   );

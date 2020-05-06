@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './MainDashboard.css';
 import coffeeService from '../../utils/coffeeService';
+import groupService from '../../utils/groupService';
 import MainHeader from '../../components/MainHeader/MainHeader';
 import Dashboard from '../../components/Dashboard/Dashboard';
 import GroupView from '../../components/GroupView/GroupView';
@@ -15,16 +16,19 @@ class MainDashboard extends Component{
     costpercent: 0,
     costdata: this.getCostData(0),
     sizepercent: 0,
-    sizedata: this.getSizeData(0)
+    sizedata: this.getSizeData(0),
+    group : [{}],
+    usergroup : []
+    
    }
 
-getCostData(costpercent) {
-    return [{ x: 1, y: costpercent }, { x: 2, y: 100 - costpercent }];
-}
+  getCostData(costpercent) {
+      return [{ x: 1, y: costpercent }, { x: 2, y: 100 - costpercent }];
+  }
   
-getSizeData(sizepercent) {
-    return [{ x: 1, y: sizepercent }, { x: 2, y: 100 - sizepercent }];
-}
+  getSizeData(sizepercent) {
+      return [{ x: 1, y: sizepercent }, { x: 2, y: 100 - sizepercent }];
+  }
   handleAddCoffee = async newCoffeeData => {
     const coffees = await coffeeService.create(newCoffeeData, this.props.user.id);
     const sumSize = coffees.reduce(function(prev, cur) {
@@ -39,8 +43,20 @@ getSizeData(sizepercent) {
     // Using cb to wait for state to update before rerouting
   }
 
+  handleAddGroup = async newGroupData => {
+    const group = await groupService.create(newGroupData);
+    this.setState({group})
+  }
+
+  handleJoinGroup = async (groupId) => {
+    const usergroup = await groupService.join(groupId);
+    this.setState({usergroup});
+
+  }
+  // ????????????
   async componentDidMount() {
     const coffees = await coffeeService.getAll(this.props.user.id);
+    const group = await groupService.getAll();
     const sumSize = coffees.reduce(function(prev, cur) {
       return prev + cur.size;
     }, 0);
@@ -49,7 +65,7 @@ getSizeData(sizepercent) {
     }, 0);
     const costpercent = (sumCost / this.props.user.limitOfExpense ) *100;
     const sizepercent = (sumSize / this.props.user.limitOfCoffee ) *100;
-    this.setState({coffees, sumCost, sumSize, costpercent, costdata: this.getCostData(costpercent), sizepercent, sizedata: this.getSizeData(sizepercent)});
+    this.setState({coffees, sumCost, sumSize, costpercent, costdata: this.getCostData(costpercent), sizepercent, sizedata: this.getSizeData(sizepercent), group});
   }
 
   async shouldComponentUpdate(){
@@ -64,7 +80,7 @@ getSizeData(sizepercent) {
                 </Dashboard>
                 </div>
                 <div className='flexRight'>
-                <GroupView user={this.props.user}></GroupView>
+                <GroupView user={this.props.user} handleAddGroup={this.handleAddGroup} group={this.state.group} handleJoinGroup={this.handleJoinGroup}></GroupView>
                 </div>
                 
                 

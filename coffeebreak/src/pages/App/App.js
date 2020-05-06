@@ -46,7 +46,7 @@ async shouldComponentUpdate(){
 
   render() {
   return (
-    <ThemeProvider theme={this.state.theme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={this.state.theme === 'light' ? lightTheme : darkTheme}>
     <div className='main-page'>
     <GlobalStyles />
       <Menu 
