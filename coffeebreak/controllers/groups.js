@@ -66,11 +66,10 @@ Group.findByIdAndDelete(req.params.id)
 
 function createPost(req, res){
   Group.findById(req.params.id)
-  .populate('user')
   .exec((err , group) => {
     group.post.push(req.body);
     group.save((err , updatedgroup) => {
-      res.json(updatedgroup);
+      res.json(updatedgroup.post);
     })
   })
 }
@@ -111,7 +110,7 @@ function allPosts(req, res) {
   .exec((err , group) => {
       if (err) { 
       console.log("index error: " + err); }
-      posts = group.post;
+      posts = (group.post).slice(-5,);
       res.json(posts);
     });
 }

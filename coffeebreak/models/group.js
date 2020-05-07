@@ -8,9 +8,6 @@ const postSchema = new Schema({
     },
     content : {
         type : String
-    },
-    picture : {
-        type : String
     }
 },{
     timestamps : true

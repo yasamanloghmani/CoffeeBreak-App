@@ -1,5 +1,4 @@
 import tokenService from './tokenService';
-import CostChart from '../components/CostChart/CostChart';
 const BASE_URL = '/api/groups/';
 function create(group) {
     return fetch(BASE_URL, {

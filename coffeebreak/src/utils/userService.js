@@ -42,7 +42,6 @@ function login(creds) {
 
 
 function getAllGroups(userId) {
-  console.log(userId);
   return fetch(BASE_URL+ userId + '/groups')
   .then(res => res.json())
 }
