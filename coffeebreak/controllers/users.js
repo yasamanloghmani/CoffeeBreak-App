@@ -55,7 +55,7 @@ function index(req, res) {
         if (err) { 
           console.log("index error: " + err);
         }
-        console.log(users)
+        
         res.json(users);
       });
   }
@@ -129,7 +129,7 @@ function joinGroup(req, res){
         return Promise.all([user.save(), group.save()])
     })
     .then(([user,group]) => {
-      return res.json({user, group});
+      return res.json();
      })
     .catch((err) => {
       console.log(err);

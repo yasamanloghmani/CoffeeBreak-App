@@ -27,7 +27,6 @@ function index(req, res) {
       .exec((err, groups)=>{
       if (err) { 
         console.log("index error: " + err); }
-      console.log(groups)
       res.json(groups);
     });
 }

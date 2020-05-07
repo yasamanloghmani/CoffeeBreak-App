@@ -29,11 +29,11 @@ class GroupView extends Component{
                 <p>You can join to one of these three public channels by entering the passwords.</p> 
                 <div className='channelinfo'>
                     <h1>Global health</h1>
-                    <p>5eb30bb61f1a291fbc85de39</p>
+                    <p>5eb41f3a749b9f42f6ff285d</p>
                     <h1>Coffee Lovers</h1>
-                    <p>5eb3333b92feeb2da2fc9fbd</p>
+                    <p>5eb41f7e749b9f42f6ff285e</p>
                     <h1>Health and Wellness</h1>
-                    <p>5eb334ef5ff04f2f63d8778a</p>
+                    <p>5eb41f9b749b9f42f6ff285f</p>
                 </div>
                
                 <JoinGroup handleJoinGroup={this.props.handleJoinGroup} ></JoinGroup>

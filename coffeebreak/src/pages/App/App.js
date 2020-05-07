@@ -44,9 +44,9 @@ handleDeleteProfile = () => {
 
 handleJoinGroup = async (groupId) => {
   const usergroup = await groupService.join(groupId);
-  const user = usergroup.user;
+  // const user = usergroup.user;
   // const group = usergroup.group;
-  this.setState({user})
+  // this.setState({user})
   
 }
 

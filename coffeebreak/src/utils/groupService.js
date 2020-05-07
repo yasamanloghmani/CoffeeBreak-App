@@ -27,6 +27,7 @@ function getGroup(groupId) {
 }
 
 function join(groupId) {
+    console.log("Join fn ", groupId);
     return fetch(`${BASE_URL}${groupId}/join`, {
       method: 'PUT',
       headers: {'content-type': 'application/json','Authorization': 'Bearer '+ tokenService.getToken()},
