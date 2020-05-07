@@ -14,23 +14,7 @@ export class ProfilePage extends Component {
             isDeleted: false
         };
     }
-
-    // handleChange = evt => {
-    //     this.setState({
-    //         [evt.target.name]: evt.target.value
-    //     });
-    // };
-
-    // handleSubmit = async evt => {
-    //     evt.preventDefault();
-    //     try {
-    //         await userService.updateUser(this.state);
-    //         this.props.history.push("/profile");
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
+ 
     handleDelete = async evt => {
         evt.preventDefault();
         try {

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import {Route, Switch, Link} from 'react-router-dom';
-import './GroupPage.css';
 import GroupHeader from '../../components/GroupHeader/GroupHeader';
 import GroupDashboard from '../../components/GroupDashboard/GroupDashboard';
 import ChatBox from '../../components/ChatBox/ChatBox';

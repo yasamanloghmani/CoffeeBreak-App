@@ -6,8 +6,6 @@ const SECRET = process.env.SECRET;
 module.exports = {
   index,
   show,
-  // update,
-  // deleteOne,
   joinGroup,
   createCoffee,
   allCoffees,
@@ -95,29 +93,6 @@ async function deleteUser(req, res) {
       }
   });
 }
-
-
-// function update(req, res) {
-//   User.findByIdAndUpdate(req.params.id, req.body, {new: true})
-//     .populate('groups')
-//       .exec((err, user)=>{
-//         if (err) { 
-//           console.log("index error: " + err); }
-//         console.log(user)
-//         res.json(user);
-//       })
-// }
-
-// function deleteOne(req, res) {
-//   User.findByIdAndDelete(req.params.id)
-//     .populate('groups')
-//       .exec((err, user)=>{
-//         if (err) { 
-//           console.log("index error: " + err); }
-//         console.log(user)
-//         res.json(user);
-//   })
-// }
 
 
 function joinGroup(req, res){

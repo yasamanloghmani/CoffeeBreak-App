@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import {Route, Switch, Link} from 'react-router-dom';
-import './GroupView.css';
 import JoinGroup from '../JoinGroup/JoinGroup';
 
 class GroupView extends Component{

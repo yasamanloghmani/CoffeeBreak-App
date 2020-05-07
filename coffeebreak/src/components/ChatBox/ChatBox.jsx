@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-// import {Route, Switch, Link} from 'react-router-dom';
 import './ChatBox.css';
-import postService from '../../utils/postService';
 
 
 class ChatBox extends Component{
@@ -31,7 +29,7 @@ class ChatBox extends Component{
                     {this.props.posts.slice(-3,).map(post => <div className="post"><p>{post.content}</p></div>)}
                 </section>
                 <section id="user" class="boxshadow">
-                    <form className="form-horizontal text-cenetr" onSubmit={this.handleSubmitPost}>
+                    <form className="text-cenetr" onSubmit={this.handleSubmitPost}>
                         <textarea id="message" className="form-control" onChange={this.handleChange} name="content"></textarea>
                         <div class="container">
                         <div class="row">

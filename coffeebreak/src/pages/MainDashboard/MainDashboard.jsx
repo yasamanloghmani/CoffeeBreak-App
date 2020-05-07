@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './MainDashboard.css';
 import coffeeService from '../../utils/coffeeService';
 import groupService from '../../utils/groupService';
 import MainHeader from '../../components/MainHeader/MainHeader';
@@ -40,7 +39,6 @@ class MainDashboard extends Component{
     const costpercent = (sumCost / this.props.user.limitOfExpense ) *100;
     const sizepercent = (sumSize / this.props.user.limitOfCoffee ) *100;
     this.setState({coffees, sumCost, sumSize, costpercent, costdata: this.getCostData(costpercent), sizepercent, sizedata: this.getSizeData(sizepercent)});
-    // Using cb to wait for state to update before rerouting
   }
 
   handleAddGroup = async newGroupData => {

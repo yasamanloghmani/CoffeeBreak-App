@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import {Route, Switch, Link} from 'react-router-dom';
 import './Dashboard.css';
 import AddCofeeBtn from '../AddCoffeeBtn/AddCoffeeBtn';
 import CostChart from '../CostChart/CostChart';

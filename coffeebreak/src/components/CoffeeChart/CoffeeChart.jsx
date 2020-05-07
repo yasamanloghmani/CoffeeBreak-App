@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import {Route, Switch, Link} from 'react-router-dom';
-import './CoffeeChart.css';
 import { VictoryPie, VictoryAnimation, VictoryLabel } from 'victory';
 
 class CoffeeChart extends Component{

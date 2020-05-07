@@ -1,26 +1,7 @@
 import React, { Component } from "react";
-import './CostChart.css';
 import { VictoryPie, VictoryAnimation, VictoryLabel } from 'victory';
 
 class CostChart extends Component{
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //       percent: 0, data: this.getData(0)
-    //     };
-    // }
-    // componentDidMount() {
-    //     // let percent = this.props.user.limitOfExpense;
-      
-    //     // this.setState({
-    //     // percent, data: this.getData(percent)
-    //     });
-    // }
-    
-    // getData(percent) {
-    // return [{ x: 1, y: percent }, { x: 2, y: 100 - percent }];
-    // }
-
     render() {
         return (
             
