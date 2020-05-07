@@ -23,12 +23,12 @@
 }
 
 
-.Menu-link:hover , .addBtn:hover{
+.Menu-link:hover , .addBtn:hover, .btn-default:hover{
     text-decoration: none;
     color: orangered;
     transform: scale(1.05);
 }
-.Menu-link:focus , .addBtn:focus{
+.Menu-link:focus , .addBtn:focus .btn-default:focus{
     color: orangered;
     outline: none;
     transform: scale(1);

@@ -27,13 +27,20 @@ class ChatBox extends Component{
         return(
             <div className="ChatBox">
                 <h1>Chatbox</h1>
-                <section id="chat" class="boxshadow">
-        {this.props.posts.slice(-5,).map(post => <div><p>{post.content}</p></div>)}
+                <section >
+                    {this.props.posts.slice(-3,).map(post => <div className="post"><p>{post.content}</p></div>)}
                 </section>
                 <section id="user" class="boxshadow">
-                    <form className="form-horizontal" onSubmit={this.handleSubmitPost}>
+                    <form className="form-horizontal text-cenetr" onSubmit={this.handleSubmitPost}>
                         <textarea id="message" className="form-control" onChange={this.handleChange} name="content"></textarea>
-                        <button type="submit" className="btn">Send</button>
+                        <div class="container">
+                        <div class="row">
+                            <div class="col text-center">
+                            <button type="submit" className="btn btn-default">Send</button>
+                            </div>
+                        </div>
+                        </div>
+                        
                     </form>
                     
                 </section>

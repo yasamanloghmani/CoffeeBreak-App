@@ -1,9 +1,23 @@
 .ChatBox{
     display: grid;
     height: 80vh;
-    grid-template-rows: 0.3fr 2.5fr 1fr;
+    grid-template-rows: 0.3fr 3fr 0.7fr;
 }
 
-.ChatBox > div , .ChatBox> h1 {
-    border : 1px solid red;
+.btn-default{
+    margin:10px auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form-control{
+    border-radius: 10px;
+}
+.post{    
+    border-radius: 10px;
+    margin:18px;
+    padding: 10px;
+    height:100px;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }

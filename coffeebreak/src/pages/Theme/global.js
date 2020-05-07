@@ -38,10 +38,10 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.mainBG};
     box-shadow:  ${({ theme }) => theme.mainShadow};
   }
-  .Menu-link:hover , .addBtn:hover{
+  .Menu-link:hover , .addBtn:hover, .btn-default:hover{
     box-shadow : ${({ theme }) => theme.hoverLinkShadow};
   }
-  .Menu-link:focus , .addBtn:focus{
+  .Menu-link:focus , .addBtn:focus, .btn-default:focus, .post{
       box-shadow : ${({ theme }) => theme.focusLinkShadow};
   }
   .flexRight, .dashboardbox, .headerbox {
@@ -87,6 +87,10 @@ export const GlobalStyles = createGlobalStyle`
     border: ${({ theme }) => theme.menuLinkBorder};
     text-align : center;
 
+  }
+  .btn-default{
+    box-shadow: ${({ theme }) => theme.menuLinkShadow};
+    color : ${({theme}) => theme.menuLinkColor}
   }
  
   `

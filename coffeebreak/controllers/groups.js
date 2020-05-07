@@ -110,7 +110,7 @@ function allPosts(req, res) {
   .exec((err , group) => {
       if (err) { 
       console.log("index error: " + err); }
-      posts = (group.post).slice(-5,);
+      posts = (group.post).slice(-3,);
       res.json(posts);
     });
 }
