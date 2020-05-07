@@ -28,6 +28,12 @@ const Menu = (props) => {
       <div>
         <Link to='/login' className='Menu-link'>LOG IN</Link>
         <Link to='/signup' className='Menu-link'>SIGN UP</Link>
+        <section className='moodSection'>
+            <Link onClick={props.toggleTheme} className= {props.theme === 'light' ? 'Menu-link moodLight'  : 'Menu-link moodDark'} >
+              {props.theme === 'light' ?  <FontAwesomeIcon icon={ faSun } className='icons' /> :<FontAwesomeIcon icon={ faMoon } className='icons' /> } 
+            </Link>
+            <p>{props.theme === 'light' ? 'Light'  : 'Dark'} </p>
+            </section>
       </div>;
   
     return (

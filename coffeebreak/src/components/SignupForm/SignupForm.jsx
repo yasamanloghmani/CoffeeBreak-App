@@ -38,8 +38,8 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Sign Up</header>
+      <div className='Sign'>
+        <header className="header-footer"><h1>Sign Up</h1></header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
@@ -64,21 +64,22 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="LOCost" value={this.state.limitOfExpense} name="limitOfExpense" onChange={this.handleChange} />
+              <input type="text" className="form-control" placeholder="Limit Of Cost" value={this.state.limitOfExpense} name="limitOfExpense" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="LOCoffee" value={this.state.limitOfCoffee} name="limitOfCoffee" onChange={this.handleChange} />
+              <input type="text" className="form-control" placeholder="Limit Of Coffee" value={this.state.limitOfCoffee} name="limitOfCoffee" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <Link to='/' className="btn btn-default">Cancel</Link>
             </div>
           </div>
         </form>
+        <img src='images/sign.png' className='signImg'/>
       </div>
     );
   }

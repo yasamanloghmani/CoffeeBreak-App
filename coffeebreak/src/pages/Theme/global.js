@@ -80,7 +80,7 @@ export const GlobalStyles = createGlobalStyle`
   .channelinfo > h1 {
     font-size : 15px;
   }
-  .ProfilePage{
+  .ProfilePage, .LoginPage, .SignupPage{
     box-shadow: ${({ theme }) => theme.menuLinkShadow};
     border-radius: 20px;
     padding:20px;

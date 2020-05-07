@@ -52,7 +52,7 @@ body {
   grid-template-columns: 9% 90%;
   justify-content: space-between;
 }
-.MainDashboard, .GroupPage, .ProfilePage{
+.MainDashboard, .GroupPage, .ProfilePage, .LoginPage, .SignupPage{
   margin:auto;
   padding: 20px;
   height: 90vh;
@@ -67,4 +67,23 @@ body {
   display: grid;
   grid-template-rows: 34% 64%;
   align-content: space-between;
+}
+
+.form-horizontal{
+  width: 30%;
+  margin: 0px auto;
+}
+
+.signImg{
+  position: relative;
+  width:30%!important;
+  right: 0;
+  bottom: 0px;
+  float: right;
+}
+
+
+.SignupPage  .signImg{
+  bottom: 220px;
+
 }
