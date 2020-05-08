@@ -10,11 +10,11 @@ This is a Full-stack Single Page App (SPA) where the user can create a account, 
 
 ![Login page]("https://imgur.com/a/5XY9brB")
 
-![signup page](https://imgur.com/W4Fv5pY)
+![signup page]("https://imgur.com/W4Fv5pY")
 
-![main page](https://imgur.com/FD2TUQ7 )
+![main page]("https://imgur.com/FD2TUQ7" )
 
-![channel page](https://imgur.com/0D2krrq)
+![channel page]("https://imgur.com/0D2krrq")
 
 ---
 
