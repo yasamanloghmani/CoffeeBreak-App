@@ -18,15 +18,14 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use("/api/users", require('./routes/api/users'));
 
-// app.use(require('./config/auth'));
+app.use(require('./config/auth'));
 app.use("/api/groups", require('./routes/api/groups'));
 app.use("/api/coffees", require('./routes/api/coffees'));
 
-if (process.env.NODE_ENV === 'production') {
-  app.get('/*', function(req, res) {
-      res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
-}
+app.get('/*', function(req, res) {
+    
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const port = process.env.PORT || 3001;
 
