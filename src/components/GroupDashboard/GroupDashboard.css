@@ -1,17 +1,16 @@
 .gridtips{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-around;
-    align-content: space-around;
-    
-    
+    grid-template-rows: 1fr 1fr;
+    /* justify-content: space-around; */
+    /* align-content: space-around; */
+
 }
 
 .gridtips >p {
     padding: 10px;
     text-align: left;
-    height: 100px;
-    overflow-y: scroll;
+    height: 50px;
+    overflow-y: scroll!important;
 }
 
 

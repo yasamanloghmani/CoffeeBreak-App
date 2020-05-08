@@ -7,11 +7,9 @@ export default function GroupDashboard(props){
     return(
         <div className='dashboardbox'>
             <h1>Channel Tips</h1>
-            
             <div className='gridtips'>
             {props.lastGroup.tips.map((tip) => <p> {tip} </p>)}
             </div>
-            
             
             <MemberView lastGroup={props.lastGroup}></MemberView>
         </div>
