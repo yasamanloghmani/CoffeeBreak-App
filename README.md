@@ -2,13 +2,13 @@
 
 ### Introduction
 
-This is a Full-stack Single Page App (SPA) where the user can create a account, and track all his coffees. User can join public channels and chat with other members. 
+This is a Full-stack Single Page App (MERN) where the user can create an account, and track all his coffees. User can join public channels and chat with other members. 
 
 ---
 
 #### Images
 
-![Login page](https://imgur.com/a/5XY9brB.png)
+![Login page](https://imgur.com/GmK2Enl.png)
 
 ![signup page](https://imgur.com/W4Fv5pY.png)
 
@@ -27,6 +27,7 @@ Front-End:
 -   CSS
 -   Bootstrap
 -   Styled-Component
+-   Victory chart
 
 Back-End:
 
@@ -39,9 +40,13 @@ Back-End:
 
 ### The Planning
 
-You can check the app here: [The Path](https://github.com/yasamanloghmani/CoffeeBreak-App)
+You can check the app here: [Coffeebreak](https://github.com/yasamanloghmani/CoffeeBreak-App)
 
 You can check the code here: [GitHub](https://github.com/suzynakayama/the-path)
+
+You can check the ERD model here: [Lucidchart](https://www.lucidchart.com/invitations/accept/5cb05182-22e4-445b-9804-dcfeec2e2d38)
+
+You can check the user story here: [Trello](https://trello.com/b/HGKwdj6Q)
 
 ---
 
