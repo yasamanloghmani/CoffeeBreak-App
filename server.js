@@ -23,7 +23,6 @@ app.use("/api/groups", require('./routes/api/groups'));
 app.use("/api/coffees", require('./routes/api/coffees'));
 
 app.get('/*', function(req, res) {
-    
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
