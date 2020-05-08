@@ -63,12 +63,12 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Limit Of Cost" value={this.state.limitOfExpense} name="limitOfExpense" onChange={this.handleChange} />
+              <input type="text" className="form-control" placeholder="Limit Of Cost ($)" value={this.state.limitOfExpense} name="limitOfExpense" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Limit Of Coffee" value={this.state.limitOfCoffee} name="limitOfCoffee" onChange={this.handleChange} />
+              <input type="text" className="form-control" placeholder="Limit Of Coffee (ML)" value={this.state.limitOfCoffee} name="limitOfCoffee" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
