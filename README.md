@@ -40,9 +40,9 @@ Back-End:
 
 ### The Planning
 
-You can check the app here: [Coffeebreak](https://github.com/yasamanloghmani/CoffeeBreak-App)
+You can check the app here: [Coffeebreak](https://coffeebreakapp.herokuapp.com/login)
 
-You can check the code here: [GitHub](https://github.com/suzynakayama/the-path)
+You can check the code here: [GitHub](https://github.com/yasamanloghmani/CoffeeBreak-App)
 
 You can check the ERD model here: [Lucidchart](https://www.lucidchart.com/invitations/accept/5cb05182-22e4-445b-9804-dcfeec2e2d38)
 
